@@ -5,11 +5,11 @@ while(true)
     {
         exit();
     }
-    if (getServerSecurityLevel(name) > getServerMinSecurityLevel(name)*3/2)
+    if (getServerSecurityLevel(name) > getServerMinSecurityLevel(name)*5/2)
     {
         weaken(name);
     }
-    else if (getServerMoneyAvailable(name)<getServerMaxMoney(name)*0.9)
+    else if (getServerMoneyAvailable(name)<getServerMaxMoney(name)*0.7)
     {
         grow(name);
     }
