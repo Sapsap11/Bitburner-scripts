@@ -1,5 +1,5 @@
-servers=[server list];
-host="bigger server";
+servers=["foodnstuff","iron-gym","sigma-cosmetics","nectar-net","harakiri-sushi","phantasy","silver-helix"];
+host=args[0];
 i=0;
 serverRam=(getServerRam(host)[0]-getServerRam(host)[1])/servers.length;
 while(true)
@@ -9,7 +9,7 @@ while(true)
     ||isRunning("grower.script",host,servers[i])
     ||isRunning("hacker.script",host,servers[i])))
     {
-        if (getServerSecurityLevel(servers[i]) > getServerMinSecurityLevel(servers[i])*5/2)
+        if (getServerSecurityLevel(servers[i]) > getServerMinSecurityLevel(servers[i])+10)
         {
             exec("weaker.script", host, Math.floor(serverRam/getScriptRam("weaker.script", host)), servers[i]);
         }
