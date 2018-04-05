@@ -8,4 +8,5 @@ for (i = 0; i < programs.length; ++i) {
         if (i === 2) {relaysmtp(target);}
         if (i === 3) {httpworm(target);}
         if (i === 4) {sqlinject(target);}}}
+nuke(target);
 tprint("hacked "+target);
