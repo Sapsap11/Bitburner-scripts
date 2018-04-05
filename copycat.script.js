@@ -38,4 +38,4 @@ while (i<servers.length)
 avalibleRam=getServerRam(host)[0];
 scriptSize=getScriptRam("genhack.script",host);
 threads=(avalibleRam - avalibleRam%scriptSize)/scriptSize;
-spawn("genhack.script", math.round(threads));
+spawn("genhack.script", Math.floor(threads));
