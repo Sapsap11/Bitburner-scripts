@@ -37,5 +37,4 @@ while (i<servers.length)
 //checks how much ram it can use, kills the script and then runs as many genhacks as it can
 avalibleRam=getServerRam(host)[0];
 scriptSize=getScriptRam("genhack.script",host);
-threads=(avalibleRam - avalibleRam%scriptSize)/scriptSize;
-spawn("genhack.script", Math.floor(threads));
+spawn("genhack.script", Math.floor(avalibleRam/scriptSize));
