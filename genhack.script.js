@@ -1,4 +1,4 @@
-name= getHostname();
+name= args[0];
 while(true)
 {
     if (isRunning('terminate.script', 'home'))
