@@ -1,7 +1,13 @@
-servers=["foodnstuff","iron-gym","sigma-cosmetics","nectar-net","harakiri-sushi","phantasy","silver-helix"];
+list=read("serverList.txt").split("&");
+servers=[];
+for (i=0;i<server.length-1;i++)
+{
+    if (!(list[i]===""||list[i]==="NULL PORT DATA"))
+        servers=servers+list[i];
+}
 host=args[0];
 i=0;
-serverRam=(getServerRam(host)[0]-getServerRam(host)[1])/servers.length;
+serverRam=getServerRam(host)[0]/servers.length;
 while(true)
 {
     if (i===servers.length){i=0}
@@ -9,11 +15,11 @@ while(true)
     ||isRunning("grower.script",host,servers[i])
     ||isRunning("hacker.script",host,servers[i])))
     {
-        if (getServerSecurityLevel(servers[i]) > getServerMinSecurityLevel(servers[i])+10)
+        if (getServerSecurityLevel(servers[i]) > getServerMinSecurityLevel(servers[i])+5)
         {
             exec("weaker.script", host, Math.floor(serverRam/getScriptRam("weaker.script", host)), servers[i]);
         }
-        else if (getServerMoneyAvailable(servers[i])<getServerMaxMoney(servers[i])*0.7)
+        else if (getServerMoneyAvailable(servers[i])<getServerMaxMoney(servers[i])*0.99)
         {
             exec("grower.script", host, Math.floor(serverRam/getScriptRam("grower.script", host)), servers[i]);
         
