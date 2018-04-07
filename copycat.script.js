@@ -25,9 +25,13 @@ while (i<servers.length)
         //gives us root if we don't already have it
         if (!hasRootAccess(servers[i]) && getServerNumPortsRequired(servers[i])<3)
         {
-        run("attack.script",1, servers[i]);
+            run("attack.script",1, servers[i]);
         }
-    
+        
+        //Adds current server to global list of available ones
+        //Should it sleep a little first? In case attack.script somehow fails?
+        write(1, getHostname());
+        
         //starts copycat on the next node and waits a bit until it starts genhack with as many threads as it can
         exec("copycat.script",servers[i]);
     
