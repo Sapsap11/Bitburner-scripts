@@ -1,6 +1,10 @@
 # Bitburner-scripts
 My scripts for the game bitburner
 
-Copycat.script needs attack.script and genhack.script to work
+Copycat attacks all servers and spreads as much as it can and gets their name, needs attack.script, genhack.script, and getName.script
 
-watchTower.script needs hacker.script, grower.script, and weaker.script to run
+makeServerList.script creates serverList.txt with all the servers that getName.script ran on
+
+hackServers.script runs the genhack.script on all the servers in serverList.txt
+
+towerSetup.script runs watchTower.script on all the servers you own requires watchTower, hacker, grower, and weaker
