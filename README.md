@@ -9,4 +9,6 @@ makeServerList.script creates serverList.txt with all the servers that getName.s
 
 hackServers.script runs the genhack.script on all the servers in serverList.txt
 
+The genhack.script can be stopped by running the terminate.script
+
 towerSetup.script runs watchTower.script on all the servers you own requires watchTower, hacker, grower, and weaker
