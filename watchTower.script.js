@@ -1,13 +1,8 @@
-list=read("serverList.txt").split("&");
-servers=[];
-for (i=0;i<server.length-1;i++)
-{
-    if (!(list[i]===""||list[i]==="NULL PORT DATA"))
-        servers=servers+list[i];
-}
+servers=read("validatedList.txt").split(",");
 host=args[0];
-i=0;
 serverRam=getServerRam(host)[0]/servers.length;
+
+i=0;
 while(true)
 {
     if (i===servers.length){i=0}
