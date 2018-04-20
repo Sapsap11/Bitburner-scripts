@@ -3,6 +3,7 @@ servers=read("altScan").split(",");
 //calculates how many ports you can open
 attacks=0;
 attackFiles=["BruteSSH.exe","FTPCrack.exe","relaySMTP.exe","HTTPWorm.exe","SQLInject.exe"];
+hacklevel=getHackingLevel();
 for (i=0;i<attackFiles.length;i++)
 {
     if (fileExists(attackFiles[i],"home"))
@@ -15,8 +16,9 @@ for (i=0;i<attackFiles.length;i++)
 
 for (i=0;i<servers.length;i++)
 {
-    if (attacks>=getServerNumPortsRequired(servers[i]) && !hasRootAccess(servers[i])){run("attack.script",1,servers[i])}
-    if (hasRootAccess(servers[i]))
+    root=hasRootAccess(servers[i]);
+    if (attacks>=getServerNumPortsRequired(servers[i]) && !root){run("attack.script",1,servers[i])}
+    if (root)
     {
         //kills all running scripts on the server,
         //waits until the server has stopped running scripts and then copies genhack over
@@ -29,7 +31,7 @@ for (i=0;i<servers.length;i++)
         scriptSize=getScriptRam("genhack.script",servers[i]);
     
     
-        if ( (avalibleRam>scriptSize) && (getHackingLevel()>=getServerRequiredHackingLevel(servers[i])) && (getServerMaxMoney(servers[i])!==0))
+        if ( (avalibleRam>scriptSize) && (hacklevel>=getServerRequiredHackingLevel(servers[i])) && (getServerMaxMoney(servers[i])!==0))
         {
             threads=Math.floor(avalibleRam/scriptSize);
             exec("genhack.script",servers[i],threads,servers[i]);
